@@ -30,6 +30,7 @@
 #include <stddef.h>
 #include <string.h> // for memcpy
 #include "exception.h"
+
 #include "iterator.h"
 #include "property.h"
 #include "node.h"
@@ -47,6 +48,7 @@ void Node::init(StringID tag, unsigned object_size, Allocator &index_allocator)
     _in_edges = EdgeIndex::create(index_allocator);
     _tag = tag;
     _property_list.init(object_size - offsetof(Node, _property_list));
+    
 }
 
 void Node::cleanup(Allocator &index_allocator)

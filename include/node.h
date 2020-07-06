@@ -29,6 +29,7 @@
 
 #pragma once
 
+#include <chrono>
 #include "stringid.h"
 #include "property.h"
 #include "iterator.h"
@@ -46,6 +47,8 @@ namespace PMGD {
         EdgeIndex *_in_edges;
         StringID _tag;
         PropertyList _property_list;
+	std::chrono::system_clock::time_point _creation_time;
+	std::chrono::system_clock::time_point _expiration_time;
 
         friend class Graph;
         void init(StringID tag, unsigned object_size,
@@ -74,5 +77,10 @@ namespace PMGD {
         EdgeIterator get_edges(Direction dir, StringID tag) const;
         void set_property(StringID id, const Property &);
         void remove_property(StringID name);
+	void set_creation_time(std::chrono::system_clock::time_point new_time_point);
+	void set_expiration_time(std::chrono::system_clock::time_point new_time_point);
+	std::chrono::system_clock::time_point get_creation_time();
+	std::chrono::system_clock::time_point  get_expiration_time();
+	
     };
 };
