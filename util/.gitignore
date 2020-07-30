@@ -1,8 +1,0 @@
-*.o
-*.d
-pmgd-util.lib
-libpmgd-util.so
-loader.cc
-loader.hh
-scanner.cc
-scanner.hh
