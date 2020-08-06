@@ -1,0 +1,25 @@
+cmake_minimum_required (VERSION 2.8)
+find_package(Java REQUIRED)
+#find_package(JNI)
+include(UseJava)
+project (pmgd-jni)
+add_jar(pmgd-jar EdgeIterator.java Edge.java Exception.java Filter.java Graph.java NodeIterator.java Node.java PropertyIterator.java Property.java PropertyPredicate.java StringID.java Transaction.java)
+
+
+create_javah(TARGET PropertyHeader CLASSES pmgd.Property CLASSPATH pmgd-jar OUTPUT_NAME ${CMAKE_CURRENT_BINARY_DIR}/Property.h)
+create_javah(TARGET PropertyIteratorHeader CLASSES pmgd.PropertyIterator CLASSPATH pmgd-jar OUTPUT_NAME ${CMAKE_CURRENT_BINARY_DIR}/PropertyIterator.h)
+create_javah(TARGET NodeHeader CLASSES pmgd.Node CLASSPATH pmgd-jar OUTPUT_NAME ${CMAKE_CURRENT_BINARY_DIR}/Node.h)
+create_javah(TARGET NodeIteratorHeader CLASSES pmgd.NodeIterator CLASSPATH pmgd-jar OUTPUT_NAME ${CMAKE_CURRENT_BINARY_DIR}/NodeIterator.h)
+create_javah(TARGET EdgeHeader CLASSES pmgd.Edge CLASSPATH pmgd-jar OUTPUT_NAME ${CMAKE_CURRENT_BINARY_DIR}/Edge.h)
+create_javah(TARGET EdgeIteratorHeader CLASSES pmgd.EdgeIterator CLASSPATH pmgd-jar OUTPUT_NAME ${CMAKE_CURRENT_BINARY_DIR}/EdgeIterator.h)
+create_javah(TARGET TransactionHeader CLASSES pmgd.Transaction CLASSPATH pmgd-jar OUTPUT_NAME ${CMAKE_CURRENT_BINARY_DIR}/Transaction.h)
+create_javah(TARGET GraphHeader CLASSES pmgd.Graph CLASSPATH pmgd-jar OUTPUT_NAME ${CMAKE_CURRENT_BINARY_DIR}/Graph.h)
+create_javah(TARGET ExceptionHeader CLASSES pmgd.Exception CLASSPATH pmgd-jar OUTPUT_NAME ${CMAKE_CURRENT_BINARY_DIR}/Exception.h)
+create_javah(TARGET PropertyPredicateHeader CLASSES pmgd.PropertyPredicate CLASSPATH pmgd-jar OUTPUT_NAME ${CMAKE_CURRENT_BINARY_DIR}/PropertyPredicate.h)
+create_javah(TARGET StringIDHeader CLASSES pmgd.StringID CLASSPATH pmgd-jar OUTPUT_NAME ${CMAKE_CURRENT_BINARY_DIR}/StringID.h)
+
+include_directories(../include/ ../util/ ${CMAKE_CURRENT_BINARY_DIR} /usr/lib/jvm/java-8-openjdk-amd64/include /usr/lib/jvm/java-8-openjdk-amd64/include/linux)
+
+message(STATUS ${JAVA_JVM_LIBRARY})
+add_library(pmgd-jni common.cc Edge.cc EdgeIterator.cc Exception.cc Graph.cc Node.cc NodeIterator.cc Property.cc PropertyIterator.cc PropertyPredicate.cc StringID.cc Transaction.cc)
+add_dependencies(pmgd-jni PropertyHeader PropertyIteratorHeader NodeHeader NodeIteratorHeader EdgeHeader EdgeIteratorHeader TransactionHeader GraphHeader ExceptionHeader PropertyPredicateHeader StringIDHeader)
