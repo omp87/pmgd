@@ -29,7 +29,7 @@
 
 #include <string.h>
 #include "pmgd.h"
-#include "PropertyIterator.h"
+#include "pmgd_PropertyIterator.h"
 #include "common.h"
 
 using namespace PMGD;

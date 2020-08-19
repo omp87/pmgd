@@ -30,7 +30,7 @@
 #include <string.h>
 #include "pmgd.h"
 #include "neighbor.h"
-#include "Node.h"
+#include "pmgd_Node.h"
 #include "common.h"
 
 using namespace PMGD;

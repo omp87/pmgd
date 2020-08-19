@@ -29,7 +29,7 @@
 
 #include <string.h>
 #include "pmgd.h"
-#include "Transaction.h"
+#include "pmgd_Transaction.h"
 #include "common.h"
 
 using namespace PMGD;

@@ -28,7 +28,7 @@
  */
 
 #include "pmgd.h"
-#include "EdgeIterator.h"
+#include "pmgd_EdgeIterator.h"
 #include "common.h"
 
 using namespace PMGD;

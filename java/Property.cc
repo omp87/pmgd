@@ -29,7 +29,7 @@
 
 #include <string.h>
 #include "pmgd.h"
-#include "Property.h"
+#include "pmgd_Property.h"
 #include "common.h"
 
 using namespace PMGD;

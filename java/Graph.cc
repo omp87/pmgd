@@ -29,7 +29,7 @@
 
 #include <string.h>
 #include "pmgd.h"
-#include "Graph.h"
+#include "pmgd_Graph.h"
 #include "common.h"
 
 using namespace PMGD;

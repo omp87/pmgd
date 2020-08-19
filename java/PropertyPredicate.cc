@@ -29,7 +29,7 @@
 
 #include "pmgd.h"
 #include "common.h"
-#include "PropertyPredicate.h"
+#include "pmgd_PropertyPredicate.h"
 
 using namespace PMGD;
 
