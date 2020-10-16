@@ -18,7 +18,7 @@ add_jar(ExceptionHeader Exception.java INCLUDE_JARS pmgd-jar GENERATE_NATIVE_HEA
 add_jar(PropertyPredicateHeader PropertyPredicate.java INCLUDE_JARS pmgd-jar GENERATE_NATIVE_HEADERS PropertyPredicate DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 add_jar(StringIDHeader StringID.java INCLUDE_JARS pmgd-jar GENERATE_NATIVE_HEADERS StringID DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
-include_directories(../include/ ../util/ ${CMAKE_CURRENT_BINARY_DIR} /usr/lib/jvm/java-8-openjdk-amd64/include /usr/lib/jvm/java-11-openjdk-amd64/include/linux)
+include_directories(../include/ ../util/ ${CMAKE_CURRENT_BINARY_DIR} /usr/lib/jvm/java-11-openjdk-amd64/include /usr/lib/jvm/java-11-openjdk-amd64/include/linux)
 
 message(STATUS ${JAVA_JVM_LIBRARY})
 add_library(pmgd-jni common.cc Edge.cc EdgeIterator.cc Exception.cc Graph.cc Node.cc NodeIterator.cc Property.cc PropertyIterator.cc PropertyPredicate.cc StringID.cc Transaction.cc)
