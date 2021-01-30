@@ -13,11 +13,20 @@ You will need to set JAVA_HOME to point to your JDK
 
 
 ## Compilation
+cmake -DCMAKE_CXX_FLAGS="-DPM -DPMFLUSH=clwb" ..
+
+or
+
+cmake -DCMAKE_CXX_FLAGS="-DPM -DPMFLUSH=clflushopt" ..
+
+
 After that it is a make in the main folder, with the following options.
 The make file puts all the libraries in a lib/ folder.
 
 The user must always specify whether the library is being compiled for PM
 or for MSYNC as follows:
+
+
 
     make PMOPT=PM
     OR
